@@ -1,1 +1,4 @@
-web: sh setup.sh && streamlit run Recommendation_Platform.py
+web: streamlit run --server.enableCORS false --server.port $PORT Recommendation_Platform.py
+
+
+
