@@ -1351,11 +1351,13 @@ if select == 'Look-Alike Analysis':
    
     lk_output=pd.concat([dataset2reference,ind_df], axis=1)
 #     st.write(lk_output)
-
+    temp3=pd.DataFrame()
     user_value=Customer_id1
     for i in range(0,11):
       temp=lk_output[[0,1,2,3,4,5,6,7,8,9,10]].iloc[user_value,i]
       temp2=pd.DataFrame(lk_output.loc[lk_output.index==temp])
       temp2.drop('CustomerID', inplace=True, axis=1)
-      st.write(temp2)
+      temp3=temp3.append(temp2)
+    temp3.drop([0,1,2,3,4,5,6,7,8,9,10],inplace=True,axis=1)
+    st.write(temp3)
 #       st.write(lk_output.loc[lk_output.index==temp])
